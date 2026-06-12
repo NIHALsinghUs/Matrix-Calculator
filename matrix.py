@@ -1,0 +1,94 @@
+## Import Numpy
+import numpy as np
+
+# Display menu heading
+print("Select the Option")
+
+print("-----------------------------------")
+
+# Display all matrix operations
+print("1. Addition\n2. Subtraction\n3. Multiplication\n4. Transpose")
+
+print("-----------------------------------")
+
+# Take user choice
+userchoice = int(input("Enter the option : "))
+
+print("-----------------------------------")
+
+# Take matrix order
+n = int(input("Enter the matrix order : "))
+
+print("-----------------------------------")
+
+# Empty lists for storing matrices
+matrix1 = []
+matrix2 = []
+
+# Transpose operation
+if (userchoice == 4):
+
+    # Input Matrix 1
+    for i in range(n):
+        row = map(int , input("Enter the Matrix 1 ( 3 number ) : "))
+        row = list(row)
+        matrix1.append(row)
+
+        # Transpose matrix
+        result = np.transpose(matrix1)
+
+    print("-----------------------------------")
+
+    # Display transpose result
+    print(result)    
+
+else:
+
+    # Input Matrix 1
+    for i in range(n):
+        row = map(int , input("Enter the Matrix 1 ( 3 number ) : "))
+        row = list(row)
+        matrix1.append(row)
+
+    # Input Matrix 2        
+    for i in range(n):
+        row = map(int , input("Enter the Martix 2 ( 3 number ) : "))
+        row = list(row)
+        matrix2.append(row)
+
+    # Convert lists into NumPy arrays
+    matrix1 = np.array(matrix1)
+    matrix2 = np.array(matrix2)
+
+# Addition
+if (userchoice == 1):
+
+    result = matrix1 + matrix2
+
+    print("-----------------------------------")
+
+    # Print addition result row-wise
+    for i in range(n):
+        print(matrix1[i],"+", matrix2[i], "=", result[i])
+
+# Subtraction
+elif (userchoice == 2):
+
+    result = matrix1 - matrix2
+
+    print("-----------------------------------")
+
+    # Print subtraction result row-wise
+    for i in range(n):
+        print(matrix1[i],"-", matrix2[i], "=", result[i])
+
+# Multiplication
+elif (userchoice == 3):
+
+    result = matrix1 @ matrix2
+
+    print("-----------------------------------")
+
+    # Print multiplication result row-wise
+    for i in range(n):
+        print(matrix1[i],"x", matrix2[i], "=", result[i])
